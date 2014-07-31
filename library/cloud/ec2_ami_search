@@ -45,7 +45,7 @@ options:
     description: Back-end store for instance
     required: false
     default: "ebs"
-    choices: ["ebs", "instance-store"]
+    choices: ["ebs", "ebs-ssd", "ebs-io1", "instance-store"]
   arch:
     description: CPU architecture
     required: false
@@ -172,7 +172,7 @@ def main():
         stream=dict(required=False, default='server',
             choices=['desktop', 'server']),
         store=dict(required=False, default='ebs',
-            choices=['ebs', 'instance-store']),
+            choices=['ebs', 'ebs-ssd', 'ebs-io1', 'instance-store']),
         arch=dict(required=False, default='amd64',
             choices=['i386', 'amd64']),
         region=dict(required=False, default='us-east-1', choices=AWS_REGIONS),
